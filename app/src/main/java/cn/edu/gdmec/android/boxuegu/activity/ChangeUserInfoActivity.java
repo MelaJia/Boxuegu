@@ -33,7 +33,7 @@ public class ChangeUserInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_user_info);
-        //设置此界面为竖屏
+        //设置此界面为竖屏    。。。。。
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         init();
     }
