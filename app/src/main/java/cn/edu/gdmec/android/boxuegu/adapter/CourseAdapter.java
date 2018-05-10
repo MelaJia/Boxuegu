@@ -1,17 +1,11 @@
 package cn.edu.gdmec.android.boxuegu.adapter;
 
-/**
- * Created by apple on 18/4/24.
- */
-
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.edu.gdmec.android.boxuegu.R;
+import cn.edu.gdmec.android.boxuegu.activity.VideoListActivity;
 import cn.edu.gdmec.android.boxuegu.bean.CourseBean;
 
 /**
@@ -66,7 +61,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         return objects.size();
     }
 
-    public void initializeView(CourseBean object, ViewHolder holder) {
+    public void initializeView(final CourseBean object, ViewHolder holder) {
 
         if (object != null){
             holder.tvCourseImgTitle.setText(object.imgTitle);
@@ -105,6 +100,15 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
                 default:
                     break;
             }
+            holder.ivCourseImg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, VideoListActivity.class);
+                    intent.putExtra("id",object.id);
+                    intent.putExtra("intro",object.intro);
+                    mContext.startActivity(intent);
+                }
+            });
         }
     }
     protected class ViewHolder extends RecyclerView.ViewHolder {
